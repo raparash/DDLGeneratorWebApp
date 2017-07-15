@@ -1,0 +1,50 @@
+<form method="post">
+	<div class="ui-field-contain">
+		<fieldset class="ui-field-contain">
+			<label for="fullname">Full name:</label> 
+			<input type="text"
+				name="fullname" id="fullname" placeholder="Full name" data-clear-btn="true"> 
+			<label for="nickname">Nickname:</label>
+			<input type="text" name="nickname" id="nickname"
+				placeholder="Optional Nickname" data-clear-btn="true"> 
+			<label for="email">E-mail:</label>
+			<input type="email" name="email" id="email"
+				placeholder="Your email.." data-clear-btn="true">
+			<div>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Auto-detect location:</legend>
+					<label for="on">on</label> 
+					<input type="radio" class="auto-loc"
+						name="auto-loc" id="on" value="on"> 
+					<label for="off">off</label>
+					<input type="radio" class="auto-loc" name="auto-loc" id="off"
+						value="off">
+				</fieldset>
+			</div>
+			<div id="location" hidden="true">
+				<fieldset class="ui-field-contain">
+					<label for="country">Country:</label> <select name="country"
+						id="country">
+						<option value="in">India</option>
+						<option value="us">USA</option>
+						<option value="uk">UK</option>
+						<option value="fr">France</option>
+						<option value="ch">China</option>
+						<option value="it">Italy</option>
+						<option value="es">Spain</option>
+					</select>
+				</fieldset>
+				<fieldset class="ui-field-contain">
+					<label for="city">City:</label> <select name="city" id="city">
+						<option value="hyd">Hyderabad</option>
+						<option value="ccu">Kolkata</option>
+						<option value="bom">Mumbai</option>
+						<option value="blr">Bangalore</option>
+						<option value="del">Delhi</option>
+					</select>
+					<fieldset class="ui-field-contain">
+			</div>
+		</fieldset>
+	</div>
+	<input type="submit" value="Register">
+</form>
