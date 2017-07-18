@@ -3,6 +3,8 @@
  */
 package com.oracle.web.app.util;
 
+import static com.oracle.web.app.constants.Constants.EMAIL_PROPERTIES;
+
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -23,8 +25,6 @@ import javax.mail.internet.MimeMessage.RecipientType;
 import javax.mail.internet.MimeMultipart;
 
 import com.oracle.web.util.PropertyManager;
-
-import static com.oracle.web.app.constants.Constants.EMAIL_PROPERTIES;
 
 /**
  * @author raparash
@@ -61,10 +61,10 @@ public class EmailUtil {
 			message.setFrom(new InternetAddress(from));
 			setMimeMessageWithAddresses(message, RecipientType.TO, to.toArray(new String[to.size()]));
 			if (cc != null)
-				setMimeMessageWithAddresses(message, (RecipientType) RecipientType.CC,
+				setMimeMessageWithAddresses(message, RecipientType.CC,
 						cc.toArray(new String[cc.size()]));
 			if (bcc != null)
-				setMimeMessageWithAddresses(message, (RecipientType) RecipientType.BCC,
+				setMimeMessageWithAddresses(message, RecipientType.BCC,
 						bcc.toArray(new String[bcc.size()]));
 			message.setSubject(subject);
 			Multipart multipart = new MimeMultipart();

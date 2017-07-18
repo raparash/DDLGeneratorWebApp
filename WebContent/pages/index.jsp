@@ -4,6 +4,31 @@
 <html>
 <head>
 <%@ include file="snippet/scripts-snippet.html"%>
+<script>
+$(document).ready(function(){
+    $("#upload").click(function(event){
+    	event.preventDefault();
+    	var formData = new FormData();
+    	console.log("fileName="+$("[type='file']").get(0).files[0]);
+    	formData.append("uploadFile",$("[type='file']").get(0).files[0]);
+    	formData.append("email",$("#email").val());
+        $.ajax({
+        	type:"POST",
+        	url:"upload_file.wss",
+        	aynsc:true,
+        	data: formData,
+        	contentType:false,
+        	processData: false,
+        	success:function(msg){
+        		alert("success");
+        	},
+        	error:function(msg){
+        		alert("failure");
+        	}
+        });
+    });
+});
+</script>
 </head>
 <body >
 
@@ -17,10 +42,9 @@
 				<div class="ui-grid-b ui-responsive">
 					<div class="ui-block-a" style="width: 10%"></div>
 					<div class="ui-block-b" style="width:80%">	
-						
 							<div class="ui-field-contain">
 								<label for="input1">Data Model Sheet (.xls,.xlsx)</label> 
-								<input type="file" name="upload_file" id="input1" placeholder="Browse" data-clear-btn="true">
+								<input type="file" name="file" id="input1" placeholder="Browse" data-clear-btn="true">
 							</div>
 							<div class="ui-field-contain">
 								<label for="email">E-mail</label> 
@@ -34,9 +58,9 @@
 									<label for="checkbox2">Execute Queries</label> 
 									<input	id="checkbox2" type="checkbox" value="execute" name="execute">
 								</fieldset>
+								
 							</div>
-							<input data-inline="true" value="Submit" type="button">
-						
+							<div align="right"><input data-inline="true" value="Upload" type="button" id="upload" ></div>
 					</div>
 				<div class="ui-block-c"></div>
 				</div>

@@ -19,7 +19,21 @@ public class EmailJunit {
 	@Test
 	public void testSendEmail(){
 		List<String> to=new ArrayList<String>();
-		to.add("rajuparashar23@gmail.com");
-		EmailUtil.sendEmail(to, null, null, "aditi.chatterjee@oracle.com", "Test Subject", "Test Body", null);
+		to.add("raju.parashar@oracle.com");
+		
+		List<String> cc=new ArrayList<String>();
+		cc.add("raju.parashar@oracle.com");
+		
+		List<String> bcc=new ArrayList<String>();
+		bcc.add("aditi.chatterjee@oracle.com");
+		
+		
+		List<String> attachments=new ArrayList<String>();
+		attachments.add("D:/JiraSubtaskTemplate.xlsx");
+		
+		String from="raghav.nirwani@oracle.com";
+		
+		
+		EmailUtil.sendEmail(to, cc, null, from, "Test Subject", "Dummy Body", attachments);
 	}
 }
